@@ -3,7 +3,7 @@
 """
 Created on Sat Feb  9 10:15:40 2019
 
-@author: eidorian
+@author: https://github.com/typorian/
 """
 
 from appJar import gui
