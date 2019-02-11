@@ -23,7 +23,10 @@ def press(button):
          delete_extension = app.getEntry("Extension of images to be deleted")
          app.setMessage("output",  "Read dir: "+read_dir+"\nDelete dir: "+delete_dir)
          angst = False
-         delete_images(read_dir, delete_dir, read_extension, delete_extension, angst)
+         if read_dir == "" or delete_dir == "" or read_extension == "" or delete_extension == "":
+         	app.setMessage("output", "Missing one of the four inputs.")
+         else:
+         	delete_images(read_dir, delete_dir, read_extension, delete_extension, angst)
     else:
          read_dir = app.getEntry("Directory with sorted images")
          delete_dir = app.getEntry("Directory with images to be deleted")
@@ -31,7 +34,10 @@ def press(button):
          delete_extension = app.getEntry("Extension of images to be deleted")
          app.setMessage("output",  "Read dir: "+read_dir+"\nDelete dir: "+delete_dir)
          angst = True
-         delete_images(read_dir, delete_dir, read_extension, delete_extension, angst)
+         if read_dir == "" or delete_dir == "" or read_extension == "" or delete_extension == "":
+         	app.setMessage("output", "Missing one of the four inputs.")
+         else:
+         	delete_images(read_dir, delete_dir, read_extension, delete_extension, angst)
 
 def delete_images(read_dir, delete_dir, read_extension, delete_extension, angst):
     readlist = [f[:-len(read_extension)] for f in listdir(read_dir) if f[-len(read_extension):] == read_extension and isfile(join(read_dir, f))]
